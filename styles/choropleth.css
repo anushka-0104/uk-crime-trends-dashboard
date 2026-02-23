@@ -1,0 +1,53 @@
+/* styles/choropleth.css */
+
+.map-controls {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.map-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.map-filter-group label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.map-filter-group select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  background: #ffffff;
+  font-size: 14px;
+}
+
+.choropleth-svg {
+  width: 100%;
+  height: auto;
+}
+
+.pfa {
+  transition: fill 0.25s ease;
+  cursor: pointer;
+}
+
+.map-tooltip {
+  position: absolute;
+  padding: 10px 12px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  font-size: 13px;
+}
+
+.map-tooltip-title {
+  margin-bottom: 6px;
+}

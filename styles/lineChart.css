@@ -1,0 +1,46 @@
+/* styles/lineChart.css */
+
+.line-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.line-controls label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.line-controls select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  font-size: 14px;
+  background: #ffffff;
+}
+
+.line-chart-svg {
+  width: 100%;
+  height: auto;
+}
+
+.line-tooltip {
+  position: absolute;
+  padding: 10px 12px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  pointer-events: none;
+  font-size: 13px;
+}
+
+.region-line {
+  transition: opacity 0.2s ease;
+}
+
+.region-point {
+  cursor: pointer;
+}
