@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>England & Wales Crime Insights Dashboard (2020–2024)</title>
+
+    <link rel="stylesheet" href="styles/BubbleChart.css">
+    <link rel="stylesheet" href="styles/choropleth.css">
+    <link rel="stylesheet" href="styles/lineChart.css">
+    <link rel="stylesheet" href="styles/barChart.css">
+    <link rel="stylesheet" href="styles/theme.css">
+
+    <!-- D3 from CDN (keeps repo smaller + cleaner) -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+
+    <script src="scripts/utils.js"></script>
+</head>
+
+<body>
+    <h1 style="
+    text-align: center;
+    color: #2c3e50;
+    font-family: 'Inter', sans-serif;
+    padding: 15px 0;
+    margin: 0 0;
+    font-size: 1.8rem;
+    width: 100%;
+    background: white;
+    border-bottom: rgba(255,255,255,255);
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+">
+        England & Wales Crime Insights Dashboard
+        <div style="
+        font-size: 0.7rem;
+        color: #95a5a6;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        margin-top: 4px;
+    ">
+            2020-2024
+        </div>
+    </h1>
+
+    <main style="display: flex; flex-direction: column; padding: 10px 0">
+
+        <div class="map-dashboard">
+            <h1>Which Areas in England & Wales Are Crime Hotspots?</h1>
+
+            <div class="map-controls">
+                <div class="map-filter-group">
+                    <label for="map-region-filter">Region:</label>
+                    <select id="map-region-filter">
+                        <option value="All">All Regions</option>
+                    </select>
+                </div>
+
+                <div class="map-filter-group">
+                    <label for="map-territory-filter">Police Force Area:</label>
+                    <select id="map-territory-filter">
+                        <option value="All">All Police Force Areas</option>
+                    </select>
+                </div>
+
+                <div class="map-filter-group">
+                    <label for="map-crime-filter">Crime Type:</label>
+                    <select id="map-crime-filter">
+                        <option value="All">All Crime Types</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="choropleth"></div>
+
+            <div class="insights">
+                <h2>Key Insights</h2>
+                <ul>
+                    <li>Total offenses recorded: <strong>944,530</strong></li>
+                    <li>Highest crime region: <strong>London</strong> (211,491 offenses)</li>
+                    <li>Most common crime type: <strong>Violence against the person</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bar-chart-container">
+            <div class="bar-chart-title">
+                <h1>What Are the Most Common Types of Crime?</h1>
+
+                <div class="bar-controls">
+                    <label for="bar-region-filter">Region:</label>
+                    <select id="bar-region-filter">
+                        <option value="all">All Regions</option>
+                    </select>
+
+                    <label for="bar-territory-filter">Police Force Area:</label>
+                    <select id="bar-territory-filter">
+                        <option value="all">All Police Force Areas</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="bar-chart"></div>
+
+            <div class="insights">
+                <h2>Key Insights</h2>
+                <ul>
+                    <li><strong>Violence Against the Person</strong> is the most common crime type in England & Wales.</li>
+                    <li>In London, <strong>Robbery and Drug offenses</strong> are proportionally higher compared to other regions.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="line-chart-container">
+            <h1>How Has Crime Changed Over Time?</h1>
+
+            <div class="line-controls">
+                <label for="line-region">Region:</label>
+                <select id="line-region">
+                    <option value="all">All Regions</option>
+                </select>
+            </div>
+
+            <div id="line-chart"></div>
+
+            <div class="insights">
+                <h2>Key Insights</h2>
+                <ul>
+                    <li>Crime levels show seasonal patterns, with peaks in mid-year months.</li>
+                    <li>Some regions show steady increases over 2020–2024, while others remain stable.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bubble-chart-container">
+            <h1>Which CSPs Have the Highest Crime?</h1>
+
+            <div class="bubble-controls">
+                <label for="bubble-regionSelect">Region:</label>
+                <select id="bubble-regionSelect">
+                    <option value="all">All Regions</option>
+                </select>
+
+                <label for="bubble-metricSelect">Metric:</label>
+                <select id="bubble-metricSelect">
+                    <option value="Total Recorded Crime">Total Recorded Crime</option>
+                </select>
+
+                <label for="bubble-topNSelect">Show:</label>
+                <select id="bubble-topNSelect">
+                    <option value="all">All CSPs</option>
+                    <option value="50">Top 50</option>
+                    <option value="100">Top 100</option>
+                    <option value="200">Top 200</option>
+                </select>
+            </div>
+
+            <div id="bubble-chart"></div>
+
+            <div class="insights">
+                <h2>Key Insights</h2>
+                <ul>
+                    <li>Crime is concentrated in a small number of CSP areas.</li>
+                    <li>Large urban CSPs consistently report higher counts than rural CSPs.</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="scripts/barChart.js"></script>
+    <script src="scripts/lineChart.js"></script>
+    <script src="scripts/BubbleChart.js"></script>
+    <script src="scripts/choropleth.js"></script>
+</body>
+
+</html>
